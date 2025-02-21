@@ -5,7 +5,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]private float _speed;
     [SerializeField]private float _rotationSpeed;
- 
+    [SerializeField]private int _collector = 0;
+
     private Rigidbody _rigidbody;
 
     private void Start()

@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Vector3 _rotationSpeed;
+    [SerializeField] private GameObject _onCollectEffect;
 
-    // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 1, 0);
+        transform.Rotate(_rotationSpeed);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.TryGetComponent<PlayerController>(out PlayerController player))
+        {
+            Destroy(gameObject);
+            Instantiate(_onCollectEffect, transform.position, transform.rotation);
+
+        }
     }
 }
