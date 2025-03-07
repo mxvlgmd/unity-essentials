@@ -21,6 +21,4 @@ public class Collectible : MonoBehaviour
             player.AddItem();
         }
     }
-
-
 }
